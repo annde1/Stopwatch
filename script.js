@@ -34,11 +34,11 @@ const updateTime = () => {
 };
 //When clicking on start button set interval to update the clock every second:
 startBtn.addEventListener("click", () => {
-  timer = setInterval(updateTime, 1000);
+  if (timer != undefined) timer = setInterval(updateTime, 1000);
 });
 resetBtn.addEventListener("click", () => {
   clearInterval(timer);
-  //   timer = undefined;
+  timer = undefined;
   seconds = 0;
   minutes = 0;
   hours = 0;
@@ -48,4 +48,5 @@ resetBtn.addEventListener("click", () => {
 });
 stopBtn.addEventListener("click", () => {
   clearInterval(timer);
+  timer = undefined;
 });
